@@ -1,0 +1,40 @@
+<html>
+	<head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="spinwheel.js"></script>
+	</head>
+	<body>
+		<canvas id="wheelcanvas" style="cursor:pointer;" width="450" height="450">Xin lỗi, chúng tôi chưa hỗ trợ trinh duyệt của bạn. Vui lòng sử dụng một trong các trình duyệt sau để có thể tham gia chương trình: Internet Explorer 9+, Firefox 19+, Chrome 25+, Safari 5.1+</canvas>
+	</body>
+	<script type="text/javascript">
+    $(document).ready(function() {
+		wheel = new SpinWheel({
+            canvas: 'wheelcanvas',
+            image: 'https://img.123pay.vn/imgmyplus/promotion/vong-quay-may-man/img/08-14/bg.png',          // Wheel active image
+            disabledImage: 'https://img.123pay.vn/imgmyplus/promotion/vong-quay-may-man/img/08-14/bg.png',  // Wheel disable image
+            startImage: 'https://img.123pay.vn/imgmyplus/promotion/vong-quay-may-man/img/07-14/btn.png',    // Wheel center button image
+            fps: 120,           // The larger this value is, the smoother and faster the wheel will spin
+            disabled: false,    // Set this flag to disable onclick event
+            click: function() { // Click event on wheel
+            	// Start spinning at same speed
+                wheel.spin();
+
+                // XXX: Simulate long running request to server
+                setTimeout(function() {
+	                // Stop spinning at a degree after receive winning position (140 in this simulation)
+	                wheel.spinToEnd(140, function() {
+	                        setTimeout(function() {
+	                            // wheel.showAnimatedMessage(data.message);
+
+	                            // display prize image
+	                            wheel.drawPrize('https://img.123pay.vn/imgmyplus/promotion/vong-quay-may-man/img/08-14/20plus.png'); 
+	                            // disable wheel's onclick event
+	                            wheel.disable();
+	                        }, 500);
+	                });
+                }, 2000);
+            }
+        });
+    });
+	</script>
+</html>
