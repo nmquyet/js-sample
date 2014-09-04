@@ -10,9 +10,9 @@
     $(document).ready(function() {
 		wheel = new SpinWheel({
             canvas: 'wheelcanvas',
-            image: 'https://img.123pay.vn/imgmyplus/promotion/vong-quay-may-man/img/08-14/bg.png',          // Wheel active image
-            disabledImage: 'https://img.123pay.vn/imgmyplus/promotion/vong-quay-may-man/img/08-14/bg.png',  // Wheel disable image
-            startImage: 'https://img.123pay.vn/imgmyplus/promotion/vong-quay-may-man/img/07-14/btn.png',    // Wheel center button image
+            image: 'images/bg.png',          // Wheel active image
+            disabledImage: 'images/bg.png',  // Wheel disable image
+            startImage: 'images/btn.png',    // Wheel center button image
             fps: 120,           // The larger this value is, the smoother and faster the wheel will spin
             disabled: false,    // Set this flag to disable onclick event
             click: function() { // Click event on wheel
@@ -27,7 +27,7 @@
 	                            // wheel.showAnimatedMessage(data.message);
 
 	                            // display prize image
-	                            wheel.drawPrize('https://img.123pay.vn/imgmyplus/promotion/vong-quay-may-man/img/08-14/20plus.png'); 
+	                            wheel.drawPrize('images/20plus.png'); 
 	                            // disable wheel's onclick event
 	                            wheel.disable();
 	                        }, 500);
